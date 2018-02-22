@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,6 +23,17 @@ public class Responder {
         this.login = login;
         this.password = password;
         this.accountType = accountType;
+    }
+    
+    public ArrayList<Advertiser> getMatches(Advertiser a){
+        ArrayList<Advertiser> matches = new ArrayList<Advertiser>();
+        if ((this.gender == a.getGenderPref())
+                && (this.age >= a.getAgeLowerLimit() && this.age <= a.getAgeUpperLimit())
+                && (this.income >= a.getMinIncome())){
+            matches.add(a);
+        }
+        
+        return matches;
     }
 
     public char getAccountType() {

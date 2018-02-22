@@ -1,24 +1,7 @@
 
 import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author swe
- */
-
-//(char accountType, String login, String password, char gender, int age, int income,
-            //char genderPref, int ageLowerLimit, int ageUpperLimit, int minIncome)
 public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
         ArrayList<Responder> customerList = new ArrayList<Responder>();
@@ -31,6 +14,7 @@ public class Main {
         Responder e = new Responder ('R', "login5", "password5", 'F', 22, 1000000);
         Responder f = new Responder ('R', "login6", "password6", 'M', 48, 1000000);
         
+        // Option A
         customerList.add(a);
         customerList.add(b);
         customerList.add(c);
@@ -38,8 +22,22 @@ public class Main {
         customerList.add(e);
         customerList.add(f);
         
-        for (Responder r: customerList){
-            System.out.println(r);
+        /* 
+        // Option E
+        for (Responder x: customerList){
+            System.out.println(x);
+        }*/
+        
+        // Option B 
+        ArrayList<Advertiser> matches = new ArrayList<Advertiser>();
+        for (Responder x: customerList){            
+            if(x.getAccountType() == 'A'){
+                matches = d.getMatches((Advertiser) x);
+            }
+        }
+        
+        for (Advertiser x: matches){
+            System.out.println(x);
         }
     }
     

@@ -35,5 +35,24 @@ public class Advertiser extends Responder {
     public void setMinIncome(int minIncome){
         this.minIncome = minIncome;
     }
+
+    public char getGenderPref() {
+        return genderPref;
+    }
+
+    public int getAgeLowerLimit() {
+        return ageLowerLimit;
+    }
+
+    public int getAgeUpperLimit() {
+        return ageUpperLimit;
+    }
+
+    public int getMinIncome() {
+        return minIncome;
+    }
+    
+    
+   
     
 }
