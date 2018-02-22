@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         ArrayList<Responder> customerList = new ArrayList<Responder>();
+        ArrayList<Message> messages = new ArrayList<Message>();
         Scanner reader = new Scanner(System.in);
         
         Advertiser a = new Advertiser ('A', "login1", "password1", 'M', 21, 10000, 'F', 20, 25, 5000);
@@ -43,6 +44,18 @@ public class Main {
                 
             }else System.out.println(x);
         }
+        
+        messages.add(sendMsg(g,h,"hello"));
+        for (Message x: messages){
+            for (Responder y: customerList){
+                if(y.getAccountType() == 'A'){
+                    if (y == x.getTo()){
+                        System.out.println(x.getBody());
+                    }
+                }
+            }
+        }
+        
 
         
 //        // Option C
@@ -64,6 +77,11 @@ public class Main {
 //            }
 //        }
         
+    }
+
+    private static Message sendMsg(Responder from, Advertiser to, String body) {
+        Message msg = new Message(from, to, body);
+        return msg;
     }
     
 }

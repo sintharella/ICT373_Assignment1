@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author swe
- */
+import java.util.ArrayList;
+
+
 public class Advertiser extends Responder {
     private char genderPref;
     private int ageUpperLimit, ageLowerLimit, minIncome;
+    private ArrayList<Message> inbox;
     
     public Advertiser(char accountType, String login, String password, char gender, int age, int income,
             char genderPref, int ageLowerLimit, int ageUpperLimit, int minIncome) {
@@ -18,6 +13,11 @@ public class Advertiser extends Responder {
         this.setGenderPref(genderPref);
         this.setAgeRange(ageLowerLimit, ageUpperLimit);
         this.setMinIncome(minIncome);
+        inbox = new ArrayList<Message>();
+    }
+    
+    public void receiveMail(Message m){
+        this.inbox.add(m);
     }
     
     public void setGenderPref (char gender){
