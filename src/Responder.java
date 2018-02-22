@@ -25,15 +25,13 @@ public class Responder {
         this.accountType = accountType;
     }
     
-    public ArrayList<Advertiser> getMatches(Advertiser a){
-        ArrayList<Advertiser> matches = new ArrayList<Advertiser>();
+    public Advertiser getMatches(Advertiser a){
         if ((this.gender == a.getGenderPref())
                 && (this.age >= a.getAgeLowerLimit() && this.age <= a.getAgeUpperLimit())
                 && (this.income >= a.getMinIncome())){
-            matches.add(a);
+            return a;
         }
-        
-        return matches;
+        return null;
     }
 
     public char getAccountType() {
