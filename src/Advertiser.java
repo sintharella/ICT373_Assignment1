@@ -14,6 +14,11 @@ public class Advertiser extends Responder {
         this.setAgeRange(ageLowerLimit, ageUpperLimit);
         this.setMinIncome(minIncome);
         inbox = new ArrayList<Message>();
+        this.inbox = inbox;
+    }
+    
+    public void addToInbox(Message m){
+        this.inbox.add(m);
     }
     
     public void receiveMail(Message m){

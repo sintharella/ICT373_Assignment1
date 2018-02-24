@@ -31,26 +31,36 @@ public class Main {
         customerList.add(g);
         customerList.add(h);
 
-        // Option B 
+        // Option B
+        // Create an arraylist of Advertisers to store the matches for Responder
         ArrayList<Advertiser> matches = new ArrayList<Advertiser>();
+        // Go through the customerList, get the Advertisers, 
+        // put into matches the Advertisers that match with the responders
         for (Responder x: customerList){            
             if(x.getAccountType() == 'A'){
                 matches.add(g.getMatches((Advertiser) x));
             }
         }
         
+        // take out the null returns that was returned by getMatches()
         for (Responder x: matches){
             if (x == null){
                 
             }else System.out.println(x);
         }
         
+        // add the message to the messages ArrayList
         messages.add(sendMsg(g,h,"hello"));
+        // Go through messages array list
+        // Go through customerList
+        // Get Advertisers from customerList, match them up with the to field from message
+        // put message into Advertiser's inbox
         for (Message x: messages){
             for (Responder y: customerList){
                 if(y.getAccountType() == 'A'){
                     if (y == x.getTo()){
-                        System.out.println(x.getBody());
+                        Advertiser z = (Advertiser) y;
+                        z.receiveMail(x);
                     }
                 }
             }
