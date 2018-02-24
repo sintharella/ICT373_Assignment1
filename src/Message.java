@@ -1,4 +1,3 @@
-
 public class Message {
     private String body;
     private Responder owner;
@@ -9,7 +8,7 @@ public class Message {
     }
 
     public String toString() {
-        return "From:\n" + owner + "\nMessage:\n" + body + "\n";
+        return "\nFrom: " + owner.getName() + "\nMessage: " + body + "\n";
     }
     
 }

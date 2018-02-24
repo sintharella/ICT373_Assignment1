@@ -2,12 +2,13 @@
 import java.util.ArrayList;
 
 public class Responder {
-    private String login, password;
+    private String name, login, password;
     private char gender, accountType;
     private int age, income;
     private ArrayList<Advertiser> matches;
     
-    public Responder(char accountType, String login, String password, char gender, int age, int income){
+    public Responder(String name, char accountType, String login, String password, char gender, int age, int income){
+        this.name = name;
         this.age = age;
         this.gender = gender;
         this.income = income;
@@ -31,13 +32,21 @@ public class Responder {
         }
     }
 
-    public void sendMessage(String login, String message){
+    public void sendMessage(String name, String message){
         Message m = new Message(this, message);
         for (Advertiser x: this.matches){
-            if(x.getLogin() == login){
+            if(x.getName().equals(name)){
                 x.addToInbox(m);
             }
         }
+    }
+
+    public ArrayList<Advertiser> getMatches() {
+        return matches;
+    }
+
+    public String getName() {
+        return name;
     }
     
     public char getAccountType() {
@@ -61,10 +70,7 @@ public class Responder {
     }
 
     public String toString() {
-        return "Username: " + this.login + " Account Type: " + this.accountType + " Gender: " + this.gender +
-                " Age: " + this.age + " Income: " + this.income;
-                }
-    
-    
-    
+        return String.format("Name: %-8s Gender: %-2s Age: %-3s Income: %-8s AccountType: %-2s"
+                , this.name, this.gender, this.age, this.income, this.accountType);
+    }  
 }

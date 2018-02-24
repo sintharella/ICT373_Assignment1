@@ -7,9 +7,9 @@ public class Advertiser extends Responder {
     private int ageUpperLimit, ageLowerLimit, minIncome;
     private ArrayList<Message> inbox;
     
-    public Advertiser(char accountType, String login, String password, char gender, int age, int income,
+    public Advertiser(String name, char accountType, String login, String password, char gender, int age, int income,
             char genderPref, int ageLowerLimit, int ageUpperLimit, int minIncome) {
-        super(accountType, login, password, gender, age, income);
+        super(name, accountType, login, password, gender, age, income);
         this.setGenderPref(genderPref);
         this.setAgeRange(ageLowerLimit, ageUpperLimit);
         this.setMinIncome(minIncome);
@@ -24,7 +24,6 @@ public class Advertiser extends Responder {
     public void addToInbox(Message m){
         this.inbox.add(m);
     }
-
     
     public void setGenderPref (char gender){
         this.genderPref = gender;
@@ -57,8 +56,5 @@ public class Advertiser extends Responder {
     public int getMinIncome() {
         return minIncome;
     }
-    
-    
-   
-    
+
 }
