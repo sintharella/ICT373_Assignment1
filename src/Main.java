@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO code application logic here
+        displayStudentDetails();
         ArrayList<Responder> customerList = new ArrayList<Responder>();
         
         Advertiser Arvin = new Advertiser ("Arvin",'A', "login1", "password1", 'M', 21, 10000, 'F', 20, 25, 5000);
@@ -24,28 +24,60 @@ public class Main {
         customerList.add(Flora);        
         customerList.add(Greg);
         
+        System.out.println("a) 7 customers were created and added to the ArrayList customerList.");
+        
+        System.out.println("//List of all customers//");
+        for (Responder x: customerList){
+           System.out.println(x);
+        } 
+        
+        // Option C
+        System.out.println("c) Add a new customer to the dating service");
+        Responder Inez = new Responder("Inez", 'R', "login7", "password7", 'F', 22, 1000);
+        customerList.add(Inez);
+        
+        System.out.println("//List of all customers//");
+        for (Responder x: customerList){
+           System.out.println(x);
+        }
+        
+        // Option D
+        System.out.println("d) Remove an existing customer from the dating service");
+        customerList.remove(Inez);
+        
+        System.out.println("//List of all customers//");
+        for (Responder x: customerList){
+           System.out.println(x);
+        }
+        
+       // Option E
+       System.out.println("e) Display the details of all advertisers registered with the service");
+       for (Responder x: customerList){
+           if (x.getAccountType() == 'A'){
+                System.out.println(x);
+            }
+        }        
+        
+        // Option F
+        System.out.println("f) Display the details of all responders registered with the service");
+        for (Responder x: customerList){
+           if (x.getAccountType() == 'R'){
+                System.out.println(x);
+            }
+        }
+ 
         // Option B
-        login(customerList);
-      
-//        // Option C
-//        Responder i = new Responder("Inez", 'R', "login7", "password7", 'F', 22, 1000);
-//        customerList.add(i);
-//        
-//        // Option D
-//        customerList.remove(i);
-//        
-//       // Option E
-//       for (Responder x: customerList){
-//           System.out.println(x);
-//        }        
-//        System.out.println("");
-//        
-//        // Option F
-//        for (Responder x: customerList){
-//           if (x.getAccountType() == 'R'){
-//                System.out.println(x);
-//            }
-//        }        
+        System.out.println("f) Get some matches for a responder, choose one match and send the match a message, then log\n" +
+"in that advertiser to get the message");
+        login(customerList);        
+    }
+    
+    public static void displayStudentDetails(){
+        System.out.println("Name: Swe Sin Tha");
+        System.out.println("Student number: 33101833");
+        System.out.println("Mode of enrollment: Full Time");
+        System.out.println("Tutor name: Dr. Loo");
+        System.out.println("Tutorial attendace day and time: Wednesday 9am SGT");
     }
 
     public static void getPickSend(Responder r, ArrayList<Responder> customerList){
