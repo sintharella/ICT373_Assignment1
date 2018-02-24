@@ -5,6 +5,7 @@ public class Responder {
     private String login, password;
     private char gender, accountType;
     private int age, income;
+    private ArrayList<Advertiser> matches;
     
     public Responder(char accountType, String login, String password, char gender, int age, int income){
         this.age = age;
@@ -13,17 +14,32 @@ public class Responder {
         this.login = login;
         this.password = password;
         this.accountType = accountType;
+        matches = new ArrayList<Advertiser>();
     }
     
-    public Advertiser getMatches(Advertiser a){
+    public void addMatches(Advertiser a){
         if ((this.gender == a.getGenderPref())
                 && (this.age >= a.getAgeLowerLimit() && this.age <= a.getAgeUpperLimit())
                 && (this.income >= a.getMinIncome())){
-            return a;
+            this.matches.add(a);
         }
-        return null;
+    }
+    
+    public void printMatches(){
+        for (Advertiser x: this.matches){
+            System.out.println(x);
+        }
     }
 
+    public void sendMessage(String login, String message){
+        Message m = new Message(this, message);
+        for (Advertiser x: this.matches){
+            if(x.getLogin() == login){
+                x.addToInbox(m);
+            }
+        }
+    }
+    
     public char getAccountType() {
         return accountType;
     }
@@ -45,8 +61,8 @@ public class Responder {
     }
 
     public String toString() {
-        return "Account Type: " + this.accountType + " Gender: " + this.gender +
-                " Age: " + this.age;
+        return "Username: " + this.login + " Account Type: " + this.accountType + " Gender: " + this.gender +
+                " Age: " + this.age + " Income: " + this.income;
                 }
     
     

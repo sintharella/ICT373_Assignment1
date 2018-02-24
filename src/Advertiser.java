@@ -24,10 +24,7 @@ public class Advertiser extends Responder {
     public void addToInbox(Message m){
         this.inbox.add(m);
     }
-    
-    public void receiveMail(Message m){
-        this.inbox.add(m);
-    }
+
     
     public void setGenderPref (char gender){
         this.genderPref = gender;

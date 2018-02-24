@@ -1,33 +1,15 @@
 
 public class Message {
     private String body;
-    private Advertiser to;
-    private Responder from;
+    private Responder owner;
     
-    public Message (Responder from, Advertiser to, String body){
+    public Message (Responder owner, String body){
         this.body = body;
-        this.to = to;
-        this.from = from;
+        this.owner = owner;
     }
 
     public String toString() {
-        return body;
-    }
-
-    public Advertiser getTo() {
-        return to;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setTo(Advertiser to) {
-        this.to = to;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
+        return "From:\n" + owner + "\nMessage:\n" + body + "\n";
     }
     
 }

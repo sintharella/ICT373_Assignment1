@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,16 +5,16 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         ArrayList<Responder> customerList = new ArrayList<Responder>();
-        ArrayList<Message> messages = new ArrayList<Message>();
-        Scanner reader = new Scanner(System.in);
         
         Advertiser a = new Advertiser ('A', "login1", "password1", 'M', 21, 10000, 'F', 20, 25, 5000);
         Advertiser b = new Advertiser ('A', "login2", "password2", 'F', 36, 300000, 'M', 36, 55, 100);
         Advertiser c = new Advertiser ('A', "login3", "password3", 'F', 28, 250000, 'F', 20, 25, 100000);
+        Advertiser h = new Advertiser('A', "login8", "password8", 'F', 40, 250000, 'M', 35, 65, 100000);
         
         Responder d = new Responder ('R', "login4", "password4", 'F', 23, 1000000);
         Responder e = new Responder ('R', "login5", "password5", 'F', 22, 1000000);
         Responder f = new Responder ('R', "login6", "password6", 'M', 48, 1000000);
+        Responder g = new Responder('R', "login7", "password7", 'M', 50, 2000000);
         
         // Option A
         customerList.add(a);
@@ -23,84 +22,53 @@ public class Main {
         customerList.add(c);
         customerList.add(d);
         customerList.add(e);
-        customerList.add(f);
-
-
-        Responder g = new Responder('R', "login7", "password7", 'M', 50, 2000000);
-        Advertiser h = new Advertiser('A', "login8", "password8", 'F', 40, 250000, 'M', 35, 65, 100000);
+        customerList.add(f);        
         customerList.add(g);
         customerList.add(h);
-
+        
         // Option B
-        // Create an arraylist of Advertisers to store the matches for Responder
-        ArrayList<Advertiser> matches = new ArrayList<Advertiser>();
-        // Go through the customerList, get the Advertisers, 
-        // put into matches the Advertisers that match with the responders
-        for (Responder x: customerList){            
-            if(x.getAccountType() == 'A'){
-                matches.add(g.getMatches((Advertiser) x));
+        matchMessage(g, customerList);
+        checkInbox(b);
+      
+        // Option C
+        Responder i = new Responder('R', "login7", "password7", 'F', 22, 1000);
+        customerList.add(i);
+        
+        // Option D
+       customerList.remove(i);
+        
+       // Option E
+       for (Responder x: customerList){
+           System.out.println(x);
+        }
+        
+        System.out.println("");
+        // Option F
+        for (Responder x: customerList){
+           if (x.getAccountType() == 'R'){
+                System.out.println(x);
             }
-        }
-        
-        // take out the null returns that was returned by getMatches()
-        for (Responder x: matches){
-            if (x == null){
-                
-            }else System.out.println(x);
-        }
-        
-        // add the message to the messages ArrayList
-        messages.add(sendMsg(g,h,"hello"));
-        // Go through messages array list
-        // Go through customerList
-        // Get Advertisers from customerList, match them up with the to field from message
-        // put message into Advertiser's inbox
-        for (Message x: messages){
-            for (Responder y: customerList){
-                if(y.getAccountType() == 'A'){
-                    if (y == x.getTo()){
-                        Advertiser z = (Advertiser) y;
-                        z.receiveMail(x);
-                    }
-                }
-            }
-        }
-        
-        for (Responder y: customerList){
-            if(y.getAccountType() == 'A'){
-                Advertiser z = (Advertiser) y;
-                for (Message x: z.getInbox()){
-                    System.out.println(x);
-                }
-            }
-        }
-        
-
-        
-//        // Option C
-//        Responder g = new Responder('R', "login7", "password7", 'M', 55, 2000000);
-//        customerList.add(g);
-//        
-//        // Option D
-//       customerList.remove(g);
-//        
-//       // Option E
-//       for (Responder x: customerList){
-//           System.out.println(x);
-//        }
-//        
-//        // Option F
-//        for (Responder x: customerList){
-//           if (x.getAccountType() == 'R'){
-//                System.out.println(x);
-//            }
-//        }
-        
+        }        
     }
 
-    private static Message sendMsg(Responder from, Advertiser to, String body) {
-        Message msg = new Message(from, to, body);
-        return msg;
+    public static void matchMessage(Responder r, ArrayList<Responder> customerList){
+            // Option B
+
+            // Get some matches for a responder
+            for (Responder x: customerList){            
+                if(x.getAccountType() == 'A'){
+                    r.addMatches((Advertiser)x);
+                }
+            }        
+            r.printMatches();
+            r.sendMessage("login2", "Hello");
     }
     
+    public static void checkInbox(Advertiser a){
+        for(Message x: a.getInbox()){
+            System.out.println(x);
+        }
+    }
 }
+
+    
