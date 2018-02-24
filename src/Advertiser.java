@@ -16,6 +16,10 @@ public class Advertiser extends Responder {
         inbox = new ArrayList<Message>();
         this.inbox = inbox;
     }
+
+    public ArrayList<Message> getInbox() {
+        return inbox;
+    }
     
     public void addToInbox(Message m){
         this.inbox.add(m);

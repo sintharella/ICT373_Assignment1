@@ -66,6 +66,15 @@ public class Main {
             }
         }
         
+        for (Responder y: customerList){
+            if(y.getAccountType() == 'A'){
+                Advertiser z = (Advertiser) y;
+                for (Message x: z.getInbox()){
+                    System.out.println(x);
+                }
+            }
+        }
+        
 
         
 //        // Option C

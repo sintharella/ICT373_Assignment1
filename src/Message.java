@@ -10,6 +10,10 @@ public class Message {
         this.from = from;
     }
 
+    public String toString() {
+        return body;
+    }
+
     public Advertiser getTo() {
         return to;
     }
