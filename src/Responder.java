@@ -1,9 +1,23 @@
 
 import java.util.ArrayList;
 
+/**
+* <h1>Java Dating Program Responder Class</h1>
+* Responder class manages customers that respond to 
+* advertisements by objects of the Advertiser class.It 
+* is also the parent of the Advertiser class.
+*
+* @author  Swe Sin Tha
+* @version 1.0
+* @since   25-02-2018
+*/
+
 public class Responder {
-    private String name, login, password;
-    private char gender, accountType;
+    private String name;
+    private String login;
+    private String password;
+    private char gender;
+    private char accountType;
     private int age, income;
     private ArrayList<Advertiser> matches;
     

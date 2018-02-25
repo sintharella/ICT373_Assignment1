@@ -1,5 +1,17 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+
+/**
+* <h1>Java Dating Program Main</h1>
+* A dating program written in Java that allows you 
+* to advertise, respond and send messags.
+*
+* @author  Swe Sin Tha
+* @version 1.0
+* @since   25-02-2018
+*/
 
 public class Main {
     public static void main(String[] args) {
@@ -78,8 +90,16 @@ public class Main {
         System.out.println("Mode of enrollment: Full Time");
         System.out.println("Tutor name: Dr. Loo");
         System.out.println("Tutorial attendace day and time: Wednesday 9am SGT");
+        System.out.println("");
     }
-
+    
+    
+   /**
+   * This method is used to get matches, pick matches
+   * and send messages to Advertisers matched to Responders.
+   * @param r The Responder whose matches we want to find
+   * @param customerList  List of customers on the site
+   */
     public static void getPickSend(Responder r, ArrayList<Responder> customerList){
             // Option B
             Scanner reader = new Scanner(System.in);
@@ -100,12 +120,22 @@ public class Main {
             System.out.println("Message Sent.");
     }
     
+   /**
+   * This method is used to check the inbox of Advertisers
+   * @param a The Advertiser whose inbox we want to check
+   */
     public static void checkInbox(Advertiser a){
         for(Message x: a.getInbox()){
             System.out.println(x);
         }
     }
     
+   /**
+   * This method is used to login to the site. Once logged in
+   * the user will be given matches or messages depending on 
+   * whether they're an Advertiser or Responder.
+   * @param cusotomerList List of customers on the site
+   */
     public static void login(ArrayList<Responder> customerList){
         Scanner reader = new Scanner(System.in);
         String again = "y";        

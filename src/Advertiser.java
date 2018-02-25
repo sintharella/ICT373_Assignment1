@@ -1,10 +1,23 @@
 
 import java.util.ArrayList;
 
+/**
+* <h1>Java Dating Program Advertiser Class</h1>
+* Advertiser class manages customers that are 
+* available as matches to objects of the Resonder class.
+* It is also the child of the Advertiser class.
+*
+* @author  Swe Sin Tha
+* @version 1.0
+* @since   25-02-2018
+*/
+
 
 public class Advertiser extends Responder {
     private char genderPref;
-    private int ageUpperLimit, ageLowerLimit, minIncome;
+    private int ageUpperLimit;
+    private int ageLowerLimit;
+    private int minIncome;
     private ArrayList<Message> inbox;
     
     public Advertiser(String name, char accountType, String login, String password, char gender, int age, int income,
