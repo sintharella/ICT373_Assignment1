@@ -6,11 +6,17 @@ A dating program written in Java with advertisers, responders and messages sent 
 
 Swe Sin Tha
 
-### File Names
+### Important Files
 
-*src/Responder.java
-*src/Advertiser.java
-*src/Message.java
+Program
+
+* src/Responder.java
+* src/Advertiser.java
+* src/Message.java
+
+Documentation
+* dist/javadoc
+* umlDiagram.jpg
 
 ### Getting Started
 
@@ -41,7 +47,7 @@ A class file will be generated. To run the generated class file type:
 java filename
 ```
 
-### Functions
+### What this program can do
 The functions the program can perform are:
 	
 	a) Create a list of 6-7 different customers of both types with made-up details built in to the client program
