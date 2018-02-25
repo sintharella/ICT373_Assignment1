@@ -4,14 +4,13 @@ A dating program written in Java with advertisers, responders and messages sent 
 
 ## Author
 
-* **Swe Sin Tha**(https://github.com/sintharella)
+Swe Sin Tha
 
 ### File Names
 
-src/Main.java
-src/Responder.java
-src/Advertiser.java
-src/Message.java
+*src/Responder.java
+*src/Advertiser.java
+*src/Message.java
 
 ### Getting Started
 
@@ -44,6 +43,7 @@ java filename
 
 ### Functions
 The functions the program can perform are:
+	
 	a) Create a list of 6-7 different customers of both types with made-up details built in to the client program
 
 	b) Get some matches for a responder, choose one match and send the match a message, then log in that advertiser to get the message
